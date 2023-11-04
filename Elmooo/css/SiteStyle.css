@@ -184,7 +184,8 @@ footer {
         font-size: 16px;
         /*margin: 25px 0;*/
         text-align: left;
-        font-family: 辰宇落雁體;
+        /*font-family: 辰宇落雁體;*/
+        line-height: 40px;
     }
 
 .aboutimg {
@@ -200,14 +201,14 @@ footer {
 
 .ab1 {
     height: 40vh;
-    background-image: url(../images/forWork/_1.jpg);
+    background-image: url('../images/forWork/_1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .ab2 {
-    background-image: url(../images/ntm.jpg);
+    background-image: url('../images/ntm.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
