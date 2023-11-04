@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Elmooo</title>
+    <script>
+
+function list_click() {
+            var inputs = document.getElementsByTagName("a");
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].id != "") {
+                    if (inputs[i].id == "home") {
+                        var href = document.getElementById("home");
+                        href.href = "../Elmooo/Default.html";
+                    }
+                    else if (inputs[i].id == "about") {
+                        var href = document.getElementById("about");
+                        href.href = "../Elmooo/About.html";
+                    }
+                    else if (inputs[i].id == "works") {
+                        var href = document.getElementById("works");
+                        href.href = "../Elmooo/Works.html";
+                    }
+                }
+            }
+        }
+
+        window.onload = function () {
+            function ferrari() {
+                var divimg = document.getElementById("workimg");
+                var ls_inner = "";
+                for (var li_img = 1; li_img <= 3; li_img++) {
+                    var ls_idnaame = "";
+                    if (li_img == 1)
+                        ls_idnaame = "ferrari";
+                    else if (li_img == 2)
+                        ls_idnaame = "nun";
+                    else if (li_img == 3)
+                        ls_idnaame = "red"
+                    ls_inner += "<div ><a id='" + ls_idnaame + "' href='#' onclick='list_click_work(this)'><img src='images/forWork/_" + li_img + ".jpg'></a></div>";
+                }
+                divimg.innerHTML = ls_inner;
+            };
+            ferrari();
+        }
+
+        function list_click_work(element) {
+            var inputs = element.id
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs != "") {
+                    //if (inputs[i].id == "ferrari") {
+                    var num = new Object;
+                    num.cp_keynum = "key_num";
+                    num.cp_num_value = inputs;
+                    var str = JSON.stringify(num);
+                    localStorage.setItem(num.cp_keynum, str);
+                    document.getElementById(inputs).href = "../Elmooo/Works_1.html";
+                    //}
+                }
+            }
+        }
+
+    </script>
+    <link href="css/SiteStyle.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <button class="menu">&#9776;</button>
+            <nav class="contact">
+                <ul>
+                    <li>
+                        <a runat="server" href="https://www.facebook.com/profile.php?id=100095285242803" height="22px">
+                            <img src="images/facebook.svg" alt="facebook" height="22px" >
+                        </a>
+                    </li>
+                    <li>
+                        <a runat="server" href="https://www.instagram.com/elmooo_lcwbld/" height="22px">
+                            <img src="images/instagram.svg" alt="instagram" height="22px">
+                        </a>
+                    </li>
+                    <li>
+                        <a runat="server" href="mailto:lcwbld@gmail.com" height="22px">
+                            <img src="images/envelope-solid.svg" alt="email" height="22px">
+                        </a>
+                    </li>
+                    <li>contact me</li>
+                </ul>
+            </nav>
+        <h1>Elmo</h1>
+        <nav>
+            <ul>
+                <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
+                <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
+                <li><a id="works" runat="server" href="#" onclick="list_click()">作品</a></li>
+                <li><a runat="server" href="#">想拍的</a></li>
+                <li><a runat="server" href="#">我有的衣服</a></li>
+            </ul>
+        </nav>
+        <hr class="hr1" width="50%">
+    </header>
+    <div class="body-content">
+        
+        <main aria-labelledby="title">
+            <div id="workimg" class="worksimg" style="padding: 2% 13% 2% 13%;">
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Elmooo</p>
+        </footer>
+    </div>
+
+</body>
+</html>
