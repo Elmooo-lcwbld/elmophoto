@@ -55,11 +55,12 @@ header {
     position: relative;
     left: 25%;
     line-height: 50px;
+    margin: 50px 0;
 }
 
 /*header end*/
 
-hr {
+body hr {
     border: 1px solid #ddd;
     line-height: 50px;
     position: relative;
@@ -263,12 +264,13 @@ footer {
         display:none;
     }
     header h1 {
-        left:50%;
-        transform: translateX(-50%);
+        margin-top: 5%;
+        font-size: 50px;
     }
-    .news h2 {
-        font-size:40px;
+    header hr1 {
+        margin: 20px;
     }
+    
     .menu {
         display:block;
         background-color: transparent;

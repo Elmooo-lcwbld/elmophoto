@@ -34,12 +34,62 @@ function list_click() {
                 var num = JSON.parse(str);
                 var ls_inner = "";
                 for (var li_img = 1; li_img <= li_imgCount; li_img++) {
-                    ls_inner += "<img src='images/" + num.cp_num_value + "/" + num.cp_num_value + " (" + li_img + ").jpg'>";
+                    ls_inner += "<img ID='"+li_img+"' onload=imgonload() src='images/" + num.cp_num_value + "/" + num.cp_num_value + " (" + li_img + ").jpg'>";
+                    
+                    const img = document.getElementsByClassName('worksimg img');
+                    img.onerror = function () {
+                        URL.revokeObjectURL(this.src);
+                        console.log('TT');};
                 }
 
                 divimg.innerHTML = ls_inner;
             };
             ferrari();
+        }
+
+        function imgonload() {
+            const img = document.getElementsByClassName('worksimg img');
+            const MAX_WIDTH = 320;
+                    const MAX_HEIGHT = 180;
+
+                        URL.revokeObjectURL(this.src);
+                        const [newWidth, newHeight] = calculateSize(
+                            img,
+                            MAX_WIDTH,
+                            MAX_HEIGHT
+                        );
+                        const canvas = document.createElement('canvas');
+                        canvas.width = newWidth;
+                        canvas.height = newHeight;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                        canvas.toBlob(
+                            (blob) => {
+                            },
+                            MIME_TYPE,
+                            QUALITY
+                        );
+                        document.getElementById('work_1img').append(canvas);
+                    };
+
+        function calculateSize(img, maxWidth, maxHeight) {
+            let width = img.width;
+            let height = img.height;
+
+            // calculate the width and height, constraining the proportions
+            if (width > height) {
+                if (width > maxWidth) {
+                    height = Math.round((height * maxWidth) / width);
+                    width = maxWidth;
+                }
+            }
+            else {
+                if (height > maxHeight) {
+                    width = Math.round((width * maxHeight) / height);
+                    height = maxHeight;
+                }
+            }
+            return [width, height];
         }
 
     </script>
@@ -89,7 +139,7 @@ function list_click() {
         </main>
         
         <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - Elmooo</p>
+            <p>&copy; 2023 - Elmooo</p>
         </footer>
     </div>
 
