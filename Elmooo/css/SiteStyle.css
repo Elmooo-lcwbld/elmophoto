@@ -11,14 +11,9 @@
     -o-transition: .25s ease-in-out; 
     transition: .25s ease-in-out; 
     -webkit-text-size-adjust: none; 
+    font-family: 微軟正黑體;
+/*Taipei Sans TC Beta*/
 }
-
-/* Makes sure that everything is 100% height */ 
-
-/*html,body { 
-    height: 100%; 
-    overflow: hidden; 
-    } */
 
 /*header start*/
 header {
@@ -34,6 +29,7 @@ header {
         line-height: 80px;
         background-repeat: no-repeat;
         background-size: 50%;
+        margin-top: 50px;
     }
 
     header nav {
@@ -126,7 +122,7 @@ body hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0 0 70%;
+    padding: 0 0 0 10%;
 }
 
     .contact ul {
@@ -139,12 +135,13 @@ body hr {
 
     .contact li {
         margin-right: 1vw;
+        display: inline;
     }
 /*聯絡方式end*/
 
 footer {
     /*    background-color: black;*/
-    color: #B7B7B7;
+    color: #6e6e6e;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -186,7 +183,6 @@ footer {
     font-size: 25px;
     text-align: center;
     text-decoration: none;
-    font-family: Taipei Sans TC Beta;
 
 }
 
@@ -231,16 +227,21 @@ footer {
     padding: 0 0 0 30%;
 }
 
-    .about h3 {
+    .about h1 {
         font-size: 25px;
-        /*margin-top: 60px;*/
+        line-height: 40px;
+        text-align: left;
+    }
+
+    .about h2 {
+        font-size: 20px;
+        line-height: 40px;
         text-align: left;
     }
 
     .about p {
         color: black;
         font-size: 16px;
-        /*margin: 25px 0;*/
         text-align: left;
         /*font-family: 辰宇落雁體;*/
         line-height: 40px;
@@ -275,19 +276,27 @@ footer {
 
 /*作品 start*/
 .worksimg {
-    display: flex;
-    /*align-items: center;*/
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: space-between;
+    /*瀑布*/
+    width: 100%;
+    margin: 0px auto;
+    column-count: 4;
+    /*欄數*/
+    column-gap: 10px;
+    /*每欄間隔*/
 }
 
-    .worksimg a {
-        height: 300px;
-    }
+.waterfall{
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0 auto 5px;
+    break-inside: avoid;
+    /*定義頁面、列或是區域發生中斷時的元素表現方式。 auto->元素中斷、acoid->元素不中斷*/
+}
 
     .worksimg img {
-        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
         border-radius: 10px;
         margin-bottom: 15px;
     }
@@ -317,9 +326,15 @@ footer {
 
 /* 響應式設計語法 */
 @media screen and (max-width: 800px) {
-    .contact {
+    /*.contact {
         display:none;
+    }*/
+
+    header {
+        height: 100px;
+        width: 100%;
     }
+
     header h1 {
         margin-top: 5%;
         font-size: 50px;
@@ -342,7 +357,8 @@ footer {
         left: -50%; 
         height: 100%; 
         width: 50%; 
-        background: #2f2f2f; 
+        background: #6e6e6e; 
+        opacity: 0.95;
         overflow-x: hidden; 
         overflow-y: scroll; 
         /*padding: 20px; */
@@ -391,24 +407,46 @@ footer {
         width: 100%;
     }
 
-    .shop {
+    .about {
+        /*background-color: antiquewhite;*/
+        color: black;
+        /*RWD要改*/
+        /*height: 30vh;*/
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        /* 上右下左  RWD要改*/
+        padding: 0 10% 0 10%;
     }
-    .shop img {
-        width:100%;
+    
+        .about h1 {
+            font-size: 25px;
+            line-height: 40px;
+            text-align: left;
+        }
+
+        .about h2 {
+            font-size: 20px;
+            line-height: 40px;
+            text-align: left;
+        }
+    
+        .about p {
+            color: black;
+            font-size: 16px;
+            text-align: left;
+            /*font-family: 辰宇落雁體;*/
+            line-height: 40px;
+        }
+
+    .worksimg {
+        /*瀑布*/
+        width: 100%;
+        margin: 0px auto;
+        column-count: 2;
+        /*欄數*/
+        column-gap: 10px;
+        /*每欄間隔*/
     }
-    .info {
-        width:100%;
-        padding:40px 0;
-    }
-    .info h2 {
-        font-size:30px;
-    }
-    .product {
-        flex-direction: column;
-        padding: 60px 0;
-    }
-    .product div {
-        margin-bottom: 30px;
-    }
-    }
+        
+}

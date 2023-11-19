@@ -35,29 +35,10 @@ function list_click() {
 </head>
 <body>
     <header>
-        <button class="menu">&#9776;</button>
-            <nav class="contact">
-                <ul>
-                    <li>
-                        <a runat="server" href="https://www.facebook.com/profile.php?id=100095285242803" height="22px">
-                            <img src="images/facebook.svg" alt="facebook" height="22px" >
-                        </a>
-                    </li>
-                    <li>
-                        <a runat="server" href="https://www.instagram.com/elmooo_lcwbld/" height="22px">
-                            <img src="images/instagram.svg" alt="instagram" height="22px">
-                        </a>
-                    </li>
-                    <li>
-                        <a runat="server" href="mailto:lcwbld@gmail.com" height="22px">
-                            <img src="images/envelope-solid.svg" alt="email" height="22px">
-                        </a>
-                    </li>
-                    <li>contact me</li>
-                </ul>
-            </nav>
-        <h1>Elmo</h1>
-        <nav>
+        <label for="burger" id="burger_label"></label>
+        <input type="checkbox" id="burger">  
+        <h1>ELMO</h1>
+        <nav id="burgernav">  
             <ul>
                 <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
                 <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
@@ -70,14 +51,16 @@ function list_click() {
     </header>
     <div class="body-content">
         <main aria-labelledby="title">
-            <div style="padding: 2% 5% 2% 5%;">
+            <div style="padding: 2% 5% 5% 5%;">
                 <div class="row">
                     <div class="inrow">
                         <div class="about">
-                            <h3>關於我</h3>
+                            <h1>關於我</h1>
                             <br />
                             <p>位於台北，是一隻周末出沒的怪獸</p>
                             <p>佛系拍攝，工作與生活要兼顧，有空才拍</p>
+                            <p>擅長甜美俏皮的風格</p>
+                            <p>不笑就是大臭臉，所以如果你喜歡臭臉的話我也很擅長臭臉</p>
                             <p></p>
                         </div>
                     </div>
@@ -90,16 +73,16 @@ function list_click() {
                 <div class="row">
                     <div class="inrow">
                         <div class="about">
-                            <h3>約拍須知</h3>
+                            <h1>約拍須知</h1>
                             <br />
                             <p>不接大尺</p>
                             <p>如果覺得臉太醜會二修，不會動到調色</p>
-                            <p>拍攝時常盡量控制在3小時以內，再多我會放空</p>
+                            <p>拍攝時常盡量控制在3小時以內，時長太常容易注意力渙散</p>
                             <p>照片請使用雲端</p>
                             <br />
-                            <p>⋙拍攝當下⋘</p>
+                            <h2>拍攝當下</h2>
                             <ul>
-                                <li><p>不太會微笑，可以提醒我多笑一點</p></li>
+                                <li><p>不太擅長微笑，可以提醒我多笑一點</p></li>
                                 <li><p>頭髮如果太凌亂的話可以告訴我，我努力整理</p></li>
                             </ul>
                         </div>
@@ -114,6 +97,24 @@ function list_click() {
     
         <footer>
             <p>&copy; 2023 - Elmooo</p>
+            <ul class="contact">
+                <li>
+                    <a runat="server" href="https://www.facebook.com/profile.php?id=100095285242803" height="22px">
+                        <img src="images/facebook.svg" alt="facebook" height="22px" >
+                    </a>
+                </li>
+                <li>
+                    <a runat="server" href="https://www.instagram.com/elmooo_lcwbld/" height="22px">
+                        <img src="images/instagram.svg" alt="instagram" height="22px">
+                    </a>
+                </li>
+                <li>
+                    <a runat="server" href="mailto:lcwbld@gmail.com" height="22px">
+                        <img src="images/envelope-solid.svg" alt="email" height="22px">
+                    </a>
+                </li>
+                <li>contact me</li>
+            </ul>    
         </footer>
     </div>
 

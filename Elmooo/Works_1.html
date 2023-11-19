@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Elmooo</title>
     <script>
 
@@ -35,61 +35,11 @@ function list_click() {
                 var ls_inner = "";
                 for (var li_img = 1; li_img <= li_imgCount; li_img++) {
                     ls_inner += "<img ID='"+li_img+"' onload=imgonload() src='images/" + num.cp_num_value + "/" + num.cp_num_value + " (" + li_img + ").jpg'>";
-                    
-                    const img = document.getElementsByClassName('worksimg img');
-                    img.onerror = function () {
-                        URL.revokeObjectURL(this.src);
-                        console.log('TT');};
                 }
 
                 divimg.innerHTML = ls_inner;
             };
             ferrari();
-        }
-
-        function imgonload() {
-            const img = document.getElementsByClassName('worksimg img');
-            const MAX_WIDTH = 320;
-                    const MAX_HEIGHT = 180;
-
-                        URL.revokeObjectURL(this.src);
-                        const [newWidth, newHeight] = calculateSize(
-                            img,
-                            MAX_WIDTH,
-                            MAX_HEIGHT
-                        );
-                        const canvas = document.createElement('canvas');
-                        canvas.width = newWidth;
-                        canvas.height = newHeight;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, newWidth, newHeight);
-                        canvas.toBlob(
-                            (blob) => {
-                            },
-                            MIME_TYPE,
-                            QUALITY
-                        );
-                        document.getElementById('work_1img').append(canvas);
-                    };
-
-        function calculateSize(img, maxWidth, maxHeight) {
-            let width = img.width;
-            let height = img.height;
-
-            // calculate the width and height, constraining the proportions
-            if (width > height) {
-                if (width > maxWidth) {
-                    height = Math.round((height * maxWidth) / width);
-                    width = maxWidth;
-                }
-            }
-            else {
-                if (height > maxHeight) {
-                    width = Math.round((width * maxHeight) / height);
-                    height = maxHeight;
-                }
-            }
-            return [width, height];
         }
 
     </script>
@@ -98,29 +48,10 @@ function list_click() {
 </head>
 <body>
     <header>
-        <button class="menu">&#9776;</button>
-            <nav class="contact">
-                <ul>
-                    <li>
-                        <a runat="server" href="https://www.facebook.com/profile.php?id=100095285242803" height="22px">
-                            <img src="images/facebook.svg" alt="facebook" height="22px" >
-                        </a>
-                    </li>
-                    <li>
-                        <a runat="server" href="https://www.instagram.com/elmooo_lcwbld/" height="22px">
-                            <img src="images/instagram.svg" alt="instagram" height="22px">
-                        </a>
-                    </li>
-                    <li>
-                        <a runat="server" href="mailto:lcwbld@gmail.com" height="22px">
-                            <img src="images/envelope-solid.svg" alt="email" height="22px">
-                        </a>
-                    </li>
-                    <li>contact me</li>
-                </ul>
-            </nav>
-        <h1>Elmo</h1>
-        <nav>
+        <label for="burger" id="burger_label"></label>
+        <input type="checkbox" id="burger">  
+        <h1>ELMO</h1>
+        <nav id="burgernav">  
             <ul>
                 <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
                 <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
@@ -134,12 +65,30 @@ function list_click() {
     <div class="body-content">
         
         <main aria-labelledby="title">
-            <div id="work_1img" class="worksimg" style="padding: 2% 13% 2% 13%;">
+            <div id="work_1img" class="worksimg" style="padding: 2% 13% 5% 13%;">
             </div>
         </main>
         
         <footer>
             <p>&copy; 2023 - Elmooo</p>
+            <ul class="contact">
+                <li>
+                    <a runat="server" href="https://www.facebook.com/profile.php?id=100095285242803" height="22px">
+                        <img src="images/facebook.svg" alt="facebook" height="22px" >
+                    </a>
+                </li>
+                <li>
+                    <a runat="server" href="https://www.instagram.com/elmooo_lcwbld/" height="22px">
+                        <img src="images/instagram.svg" alt="instagram" height="22px">
+                    </a>
+                </li>
+                <li>
+                    <a runat="server" href="mailto:lcwbld@gmail.com" height="22px">
+                        <img src="images/envelope-solid.svg" alt="email" height="22px">
+                    </a>
+                </li>
+                <li>contact me</li>
+            </ul>
         </footer>
     </div>
 
