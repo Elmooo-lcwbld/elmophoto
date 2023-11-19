@@ -21,10 +21,6 @@ function list_click() {
                         var href = document.getElementById("works");
                         href.href = "../Elmooo/Works.html";
                     }
-                    else if (inputs[i].id == "ferrari") {
-                        var href = document.getElementById("ferrari");
-                        href.href = "../Elmooo/Works_1.html";
-                    }
                     else if (inputs[i].id == "clothing") {
                         var href = document.getElementById("clothing");
                         href.href = "../Elmooo/Clothing.html";
@@ -32,6 +28,20 @@ function list_click() {
                 }
             }
         }
+
+        /*window.onload = function () {
+            function img_load() {
+                var divimg = document.getElementById("work_1img");
+                var li_imgCount = 8;
+                var ls_inner = "";
+                for (var li_img = 1; li_img <= li_imgCount; li_img++) {
+                    ls_inner += "<div class='waterfall'><img ID='"+li_img+"' src='images/clothing/clothing (" + li_img + ").jpg'></div>";
+                }
+
+                divimg.innerHTML = ls_inner;
+            };
+            img_load();
+        }*/
 
     </script>
     <link href="css/SiteStyle.css" rel="stylesheet" />
@@ -53,50 +63,32 @@ function list_click() {
         <hr class="hr1" width="50%">
     </header>
     <div class="body-content">
+        
         <main aria-labelledby="title">
-            <div style="padding: 2% 5% 5% 5%;">
-                <div class="row">
-                    <div class="inrow">
-                        <div class="about">
-                            <h1>關於我</h1>
-                            <br />
-                            <p>位於台北，是一隻周末出沒的怪獸。</p>
-                            <p>佛系拍攝，工作與生活要兼顧，有空才拍。</p>
-                            <p>擅長甜美俏皮的風格。</p>
-                            <p>不笑就是大臭臉，所以如果你喜歡臭臉的話我也很擅長臭臉。</p>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="inrow">
-                        <div class="aboutimg ab1">
-                        </div>
-                    </div>
+            <div id="work_1img" class="worksimg" style="padding: 2% 13% 5% 13%;">
+                <div class="waterfall">
+                    <img ID="1" src="images/clothing/clothing (1).jpg">
+                    <p>〔Angelic Pretty〕 2019年草莓</p>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="inrow">
-                        <div class="about">
-                            <h1>約拍須知</h1>
-                            <br />
-                            <p>不接大尺。</p>
-                            <p>如果覺得臉太醜會二修，不會動到調色。</p>
-                            <p>拍攝時常盡量控制在3小時以內，時長太常容易注意力渙散。</p>
-                            <br />
-                            <h2>拍攝當下</h2>
-                            <ul>
-                                <li><p>不太擅長微笑，可以提醒我多笑一點</p></li>
-                                <li><p>頭髮如果太凌亂的話可以告訴我，我努力整理</p></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="inrow">
-                        <div class="aboutimg ab2">
-                        </div>
-                    </div>
+                <div class="waterfall">
+                    <img ID="2" src="images/clothing/clothing (2).jpg">
+                    <p>〔Unideer悠尼蒂鹿〕 芙蕾雅之憶</p>
+                </div>
+                <div class="waterfall">
+                    <img ID="3" src="images/clothing/clothing (3).jpg">
+                    <p>〔DrunkCoco酒心可可〕 提拉米蘇 One Piece</p>
+                </div>
+                <div class="waterfall">
+                    <img ID="4" src="images/clothing/clothing (6).jpg">
+                    <p>〔DrunkCoco酒心可可〕 提拉米蘇 Jump Skirt</p>
+                </div>
+                <div class="waterfall">
+                    <img ID="5" src="images/clothing/clothing (1).jpg">
+                    <p>〔DrunkCoco酒心可可〕 2019年草莓</p>
                 </div>
             </div>
         </main>
-    
+        
         <footer>
             <p>&copy; 2023 - Elmooo</p>
             <ul class="contact">
@@ -116,7 +108,7 @@ function list_click() {
                     </a>
                 </li>
                 <li>contact me</li>
-            </ul>    
+            </ul>
         </footer>
     </div>
 

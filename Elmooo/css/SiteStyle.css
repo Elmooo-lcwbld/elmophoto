@@ -281,7 +281,7 @@ footer {
     margin: 0px auto;
     column-count: 4;
     /*欄數*/
-    column-gap: 10px;
+    column-gap: 5px;
     /*每欄間隔*/
 }
 
@@ -447,5 +447,12 @@ footer {
         column-gap: 10px;
         /*每欄間隔*/
     }
-        
+
+    .waterfall{
+        padding: 0;
+    }
+
+    .waterfall p{
+        font-size: 12px;
+    }
 }

@@ -21,12 +21,16 @@ function list_click() {
                         var href = document.getElementById("works");
                         href.href = "../Elmooo/Works.html";
                     }
+                    else if (inputs[i].id == "clothing") {
+                        var href = document.getElementById("clothing");
+                        href.href = "../Elmooo/Clothing.html";
+                    }
                 }
             }
         }
 
         window.onload = function () {
-            function ferrari() {
+            function img_load() {
                 var divimg = document.getElementById("work_1img");
                 var li_imgCount = 14;
                 var cp_keynum = "key_num";
@@ -34,12 +38,12 @@ function list_click() {
                 var num = JSON.parse(str);
                 var ls_inner = "";
                 for (var li_img = 1; li_img <= li_imgCount; li_img++) {
-                    ls_inner += "<img ID='"+li_img+"' onload=imgonload() src='images/" + num.cp_num_value + "/" + num.cp_num_value + " (" + li_img + ").jpg'>";
+                    ls_inner += "<div class='waterfall'><img ID='"+li_img+"' src='images/" + num.cp_num_value + "/" + num.cp_num_value + " (" + li_img + ").jpg'></div>";
                 }
 
                 divimg.innerHTML = ls_inner;
             };
-            ferrari();
+            img_load();
         }
 
     </script>
@@ -56,8 +60,7 @@ function list_click() {
                 <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
                 <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
                 <li><a id="works" runat="server" href="#" onclick="list_click()">作品</a></li>
-                <li><a runat="server" href="#">想拍的</a></li>
-                <li><a runat="server" href="#">我有的衣服</a></li>
+                <li><a id="clothing" runat="server" href="#" onclick="list_click()">我有的衣服</a></li>
             </ul>
         </nav>
         <hr class="hr1" width="50%">
