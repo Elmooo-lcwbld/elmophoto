@@ -405,16 +405,15 @@ footer {
 
     .inrow{
         width: 100%;
+        height: auto;
     }
 
     .about {
         /*background-color: antiquewhite;*/
         color: black;
         /*RWD要改*/
-        /*height: 30vh;*/
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        height: 460px;
+
         /* 上右下左  RWD要改*/
         padding: 0 10% 0 10%;
     }
