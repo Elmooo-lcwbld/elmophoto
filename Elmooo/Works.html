@@ -33,7 +33,7 @@ function list_click() {
             function ferrari() {
                 var divimg = document.getElementById("workimg");
                 var ls_inner = "";
-                for (var li_img = 1; li_img <= 3; li_img++) {
+                for (var li_img = 1; li_img <= 4; li_img++) {
                     var ls_idnaame = "";
                     if (li_img == 1)
                         ls_idnaame = "ferrari";
@@ -41,6 +41,8 @@ function list_click() {
                         ls_idnaame = "nun";
                     else if (li_img == 3)
                         ls_idnaame = "red"
+                    else if (li_img == 4)
+                        ls_idnaame = "noway"
                     ls_inner += "<div class='waterfall' ><a id='" + ls_idnaame + "' href='#' onclick='list_click_work(this)'><img src='images/forWork/w_" + li_img + ".jpg'></a></div>";
                 }
                 divimg.innerHTML = ls_inner;
