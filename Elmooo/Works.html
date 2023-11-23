@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Elmooo</title>
+    <link href="css/SiteStyle.css" rel="stylesheet" />
+    <script src="css/snowfall.js"></script>
     <script>
 
 function list_click() {
@@ -66,21 +68,50 @@ function list_click() {
             }
         }
 
-    </script>
-    <link href="css/SiteStyle.css" rel="stylesheet" />
+        function mode() {
+            if(document.getElementById('modeimg').src.includes("moon")){    
+                document.getElementById('modeimg').src = "images/sun.svg";
+                document.body.style.backgroundColor = "#262a30";
+                document.getElementById('elmo').style.color = "#d4d2d2";
+            }
+            else{
+                document.getElementById('modeimg').src = "images/moon.svg";
+                document.body.style.backgroundColor = "white";
+                document.getElementById('elmo').style.color = "#101214";
+            }
+        }
 
+        let snowfall = new Snowfall({
+            // number of snowflakes
+            count: 100,
+            // min/max size
+            minRadius: 10,
+            maxRadius: 30,
+            // min/max speed
+            minSpeed: 3,
+            maxSpeed: 10,
+            // custom symbol or text for snowflakes
+            text: "\u2744", 
+            // color of snowflakes
+            color: "white",
+            // z-index for the canvas
+            zIndex: "1000" 
+        });
+
+    </script>
 </head>
 <body>
     <header>
         <label for="burger" id="burger_label"></label>
         <input type="checkbox" id="burger">  
-        <h1>ELMO</h1>
+        <h1 id="elmo">ELMO</h1>
         <nav id="burgernav">  
             <ul>
                 <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
                 <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
                 <li><a id="works" runat="server" href="#" onclick="list_click()">作品</a></li>
-                <li><a id="clothing" runat="server" href="#" onclick="list_click()">我有的衣服</a></li>
+                <li><a id="clothing" runat="server" href="#" onclick="list_click()">衣櫃</a></li>
+                <li><a id="mode" runat="server" href="#" onclick="mode()"><img id="modeimg" src="images/moon.svg" alt="切換模式" height="22px" >切換模式</a></li>
             </ul>
         </nav>
         <hr class="hr1" width="50%">
