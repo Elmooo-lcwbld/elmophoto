@@ -36,16 +36,30 @@ function list_click() {
                 var divimg = document.getElementById("workimg");
                 var ls_inner = "";
                 for (var li_img = 1; li_img <= 4; li_img++) {
+                    var ls_photographer = "";
                     var ls_idnaame = "";
-                    if (li_img == 1)
-                        ls_idnaame = "ferrari";
-                    else if (li_img == 2)
+                    if (li_img == 1){
+                       ls_idnaame = "ferrari";
+                       ls_photographer = "【法拉莉婚紗】";
+                    }
+                    else if (li_img == 2){
                         ls_idnaame = "nun";
-                    else if (li_img == 3)
-                        ls_idnaame = "red"
-                    else if (li_img == 4)
-                        ls_idnaame = "noway"
-                    ls_inner += "<div class='waterfall' ><a id='" + ls_idnaame + "' href='#' onclick='list_click_work(this)'><img src='images/forWork/w_" + li_img + ".jpg'></a></div>";
+                        ls_photographer = "【SR】";
+                    }
+                    else if (li_img == 3){
+                        ls_idnaame = "red";
+                        ls_photographer = "【SR】";
+                    }
+                    else if (li_img == 4){
+                        ls_idnaame = "noway";
+                        ls_photographer = "【NoWay】";
+                    }
+
+                    ls_inner += `<a id='${ls_idnaame}' href='#' onclick='list_click_work(this)'>
+                        <div class='workswaterfall' style='background-image:url("images/forWork/w_${li_img}.jpg");'>
+                            <h2>${ls_photographer}</h2>
+                        </div>
+                        </a>`;
                 }
                 divimg.innerHTML = ls_inner;
             };

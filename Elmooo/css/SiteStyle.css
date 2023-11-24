@@ -291,13 +291,56 @@ footer {
     /*每欄間隔*/
 }
 
-.waterfall{
+.workswaterfall{
     padding: 5px;
     box-sizing: border-box;
     margin: 0 auto 5px;
     break-inside: avoid;
     /*定義頁面、列或是區域發生中斷時的元素表現方式。 auto->元素中斷、acoid->元素不中斷*/
+    /*圖片設定*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-decoration: none;
 }
+
+.worksimg a, .worksimg a:link, .worksimg a:visited, .worksimg a:focus, .worksimg a:hover, .worksimg a:active, .worksimg h2 {
+    color: #6e6e6e;
+    text-align: center;
+    text-decoration: none;
+    line-height: 180px;
+    font-size: 20px;
+}
+
+.workswaterfall h2 {
+    opacity: 0;
+    color: darkgray;
+}
+.workswaterfall h2:hover{
+    opacity: 1;
+}
+    .workswaterfall:hover {
+        opacity: 0.5;
+        box-shadow: 10px 10px 5px rgb(203, 203, 203, 0.43);
+    }
+
+    .workswaterfall h2:hover::before {
+        position: relative;
+        content: attr(h2);
+    }
+
+    .waterfall{
+        padding: 5px;
+        box-sizing: border-box;
+        margin: 0 auto 5px;
+        break-inside: avoid;
+        /*定義頁面、列或是區域發生中斷時的元素表現方式。 auto->元素中斷、acoid->元素不中斷*/
+    }
 
     .worksimg img {
         width: 100%;
@@ -305,19 +348,6 @@ footer {
         object-position: 50% 50%;
         border-radius: 10px;
         margin-top: 15px;
-    }
-
-    .worksimg img:hover {
-        opacity: 0.5;
-        box-shadow: 10px 10px 5px rgb(203, 203, 203, 0.43);
-        
-    }
-
-    .worksimg img:hover::before {
-        position: absolute;
-        top: -50px;
-        left: 0;
-        content: '你看到我啦(・ω・)ノ';
     }
 /*作品 end*/
 
