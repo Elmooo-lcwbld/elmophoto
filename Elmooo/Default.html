@@ -5,30 +5,52 @@
     <title>Elmooo</title>
     <script src="css/snowfall.js"></script>
     <script>
+        window.onload = function () {
+            function blackwhite_load() {
+                
+                var cp_keynum = "key_num";
+                var str = localStorage.getItem(cp_keynum);
+                var blackwhite = JSON.parse(str);
+                if(blackwhite.cp_num_value == "moon"){
+                    document.getElementById('modeimg').src = "images/sun.svg";
+                    document.body.style.backgroundColor = "#262a30";
+                    document.getElementById('elmo').style.color = "#d4d2d2";
+                }
+                else{
+                    document.getElementById('modeimg').src = "images/moon.svg";
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById('elmo').style.color = "#101214";
+                }
+            };
+            blackwhite_load();
+        }
 
-        function list_click() {
-            var inputs = document.getElementsByTagName("a");
+        function list_click(element) {
+            var inputs = element.id;
             for (var i = 0; i < inputs.length; i++) {
-                if (inputs[i].id != "") {
-                    if (inputs[i].id == "home") {
-                        var href = document.getElementById("home");
-                        href.href = "../Elmooo/Default.html";
+                if (inputs != "") {
+                    var mode = document.getElementById("modeimg");
+                    var blackwhite = new Object;
+                    blackwhite.cp_keynum = "key_num";
+                    if(mode.src.includes("sun")){
+                        blackwhite.cp_num_value = "moon";
                     }
-                    else if (inputs[i].id == "about") {
-                        var href = document.getElementById("about");
-                        href.href = "../Elmooo/About.html";
+                    else{
+                        blackwhite.cp_num_value = "sun";
                     }
-                    else if (inputs[i].id == "works") {
-                        var href = document.getElementById("works");
-                        href.href = "../Elmooo/Works.html";
+                    var str = JSON.stringify(blackwhite);
+                    localStorage.setItem(blackwhite.cp_keynum, str);
+                    if (inputs == "home") {
+                        document.getElementById(inputs).href = "../Elmooo/Default.html";
                     }
-                    else if (inputs[i].id == "ferrari") {
-                        var href = document.getElementById("ferrari");
-                        href.href = "../Elmooo/Works_1.html";
+                    else if (inputs == "about") {
+                        document.getElementById(inputs).href = "../Elmooo/About.html";
                     }
-                    else if (inputs[i].id == "clothing") {
-                        var href = document.getElementById("clothing");
-                        href.href = "../Elmooo/Clothing.html";
+                    else if (inputs == "works") {
+                        document.getElementById(inputs).href = "../Elmooo/Works.html";
+                    }
+                    else if (inputs == "clothing") {
+                        document.getElementById(inputs).href = "../Elmooo/Clothing.html";
                     }
                 }
             }
@@ -73,19 +95,21 @@
         <label for="burger" id="burger_label"></label>
         <input type="checkbox" id="burger">  
         <h1 id="elmo">ELMO</h1>
+        <div id="app">
+            <my-button></my-button>
+          </div>
         <nav id="burgernav">  
             <ul>
-                <li><a id="home" runat="server" href="#" onclick="list_click()">首頁</a></li>
-                <li><a id="about" runat="server" href="#" onclick="list_click()">關於</a></li>
-                <li><a id="works" runat="server" href="#" onclick="list_click()">作品</a></li>
-                <li><a id="clothing" runat="server" href="#" onclick="list_click()">衣櫃</a></li>
+                <li><a id="home" runat="server" href="#" onclick="list_click(this)">首頁</a></li>
+                <li><a id="about" runat="server" href="#" onclick="list_click(this)">關於</a></li>
+                <li><a id="works" runat="server" href="#" onclick="list_click(this)">作品</a></li>
+                <li><a id="clothing" runat="server" href="#" onclick="list_click(this)">衣櫃</a></li>
                 <li><a id="mode" runat="server" href="#" onclick="mode()"><img id="modeimg" src="images/moon.svg" alt="切換模式" height="22px" >切換模式</a></li>
             </ul>
         </nav>
         <hr class="hr1" width="50%">
     </header>
     <div class="body-content">
-        
         <main>
             <div class="defaultdiv" style="padding: 2% 5% 5% 5%;">
                 <div class="ToAbout">
